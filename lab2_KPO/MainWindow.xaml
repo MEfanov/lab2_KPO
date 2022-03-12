@@ -1,0 +1,35 @@
+﻿<Window x:Class="lab2_KPO.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab2_KPO"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TreeView Name="DBtree" TreeViewItem.Expanded="DBtree_Expanded" TreeViewItem.Selected="DBtree_SelectedChanged"
+                  TreeViewItem.Unselected="DBtree_SelectedChanged">
+            <TreeViewItem x:Name="TreeRoot" Header="Users">
+                <TreeViewItem Header="Загрузка..."/>
+            </TreeViewItem>
+            <TreeView.ContextMenu>
+                <ContextMenu x:Name="TreeMenu">
+                    <MenuItem x:Name="MenuCreate" IsEnabled="False" Header="Добавить" Click="CreateButton_Click"/>
+                    <MenuItem x:Name="MenuUpdate" IsEnabled="False" Header="Изменить" Click="UpdateButton_Click"/>
+                    <MenuItem x:Name="MenuDelete" IsEnabled="False" Header="Удалить" Click="DeleteButton_Click"/>
+                </ContextMenu>
+            </TreeView.ContextMenu>
+        </TreeView>
+        <StackPanel Grid.Column="1">
+            <Button x:Name="CreateButton" IsEnabled="False" Content="Добавить" Height="30" Margin="5, 2" Click="CreateButton_Click"/>
+            <Button x:Name="UpdateButton" IsEnabled="False" Content="Изменить" Height="30" Margin="5, 2" Click="UpdateButton_Click"/>
+            <Button x:Name="DeleteButton" IsEnabled="False" Content="Удалить" Height="30" Margin="5, 2" Click="DeleteButton_Click"/>
+        </StackPanel>
+        <Button x:Name="ExitButton" Content="Выход" Grid.Column="1" Height="30" Margin="5, 2" VerticalAlignment="Bottom"
+                Click="ExitButton_Click"/>
+    </Grid>
+</Window>
